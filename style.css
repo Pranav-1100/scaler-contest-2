@@ -1,0 +1,274 @@
+/* CSS file */
+/* Style the container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Style the tweet form */
+#tweet-form {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Style the tweet input */
+#tweet-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the tweet button */
+#tweet-button {
+    padding: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the tweet section */
+#tweet-section {
+    margin: 10px;
+}
+
+/* Style the tweet card */
+.tweet-card {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the tweet content */
+.tweet-content {
+    flex: 1;
+}
+
+/* Style the tweet text */
+.tweet-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Style the tweet actions */
+.tweet-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Style the like icon */
+.like-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Style the comment icon */
+.comment-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Style the delete button */
+.delete-button {
+    padding: 5px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the comment section */
+.comment-section {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the comment form */
+.comment-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Style the comment input */
+.comment-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the comment button */
+.comment-button {
+    padding: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the comment list */
+.comment-list {
+    list-style: none;
+}
+
+/* Style the comment item */
+.comment-item {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Style the comment text */
+.comment-text {
+    flex: 1;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Style the edit button */
+.edit-button {
+    padding: 5px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the save button */
+.save-button {
+    padding: 5px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the cancel button */
+.cancel-button {
+    padding: 5px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add some media queries for responsiveness */
+@media (max-width: 768px) {
+    /* Make the tweet input and button stack on small screens */
+    #tweet-form {
+        flex-direction: column;
+    }
+
+    /* Reduce the padding of the tweet button */
+    #tweet-button {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Reduce the width of the container */
+    .container {
+        width: 90%;
+    }
+}
+
+/* Add some transitions and animations for smoothness */
+/* Transition the background color of the tweet button on hover */
+#tweet-button:hover {
+    transition: background-color 0.3s;
+    background-color: #0d8bd9;
+}
+
+/* Transition the opacity of the like icon on hover */
+.like-icon:hover {
+    transition: opacity 0.3s;
+    opacity: 0.8;
+}
+
+/* Transition the opacity of the comment icon on hover */
+.comment-icon:hover {
+    transition: opacity 0.3s;
+    opacity: 0.8;
+}
+
+/* Transition the background color of the delete button on hover */
+.delete-button:hover {
+    transition: background-color 0.3s;
+    background-color: #d32f2f;
+}
+
+/* Transition the background color of the comment button on hover */
+.comment-button:hover {
+    transition: background-color 0.3s;
+    background-color: #0d8bd9;
+}
+
+/* Transition the background color of the edit button on hover */
+.edit-button:hover {
+    transition: background-color 0.3s;
+    background-color: #388e3c;
+}
+
+/* Transition the background color of the save button on hover */
+.save-button:hover {
+    transition: background-color 0.3s;
+    background-color: #388e3c;
+}
+
+/* Transition the background color of the cancel button on hover */
+.cancel-button:hover {
+    transition: background-color 0.3s;
+    background-color: #d32f2f;
+}
+
+/* Animate the tweet card on creation */
+.tweet-card {
+    animation: slide-in 0.5s ease-in-out;
+}
+
+/* Define the slide-in animation */
+@keyframes slide-in {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animate the comment section on toggle */
+.comment-section {
+    animation: fade-in 0.3s ease-in-out;
+}
+
+/* Define the fade-in animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Clone</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .header img {
+            height: 50px;
+        }
+.container {
+    right: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.container-2 {
+    left: 50%;
+    margin: 0 auto;
+}
+
+#tweet-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40%;
+    right: 50%;
+    margin: 10px;
+}
+#tweet-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#tweet-button {
+    padding: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tweet-section {
+    margin: 10px;
+    left: 50%;
+}
+
+.tweet-card {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tweet-content {
+    flex: 1;
+}
+
+.tweet-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tweet-actions {
+    display: flex;
+    align-items: center;
+}
+
+.like-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.comment-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.delete-button {
+    padding: 5px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-section {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the comment button */
+.comment-button {
+    padding: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the comment list */
+.comment-list {
+    list-style: none;
+}
+
+/* Style the comment item */
+.comment-item {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Style the comment text */
+.comment-text {
+    flex: 1;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Style the edit button */
+.edit-button {
+    padding: 5px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the save button */
+.save-button {
+    padding: 5px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the cancel button */
+.cancel-button {
+    padding: 5px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add some media queries for responsiveness */
+@media (max-width: 768px) {
+    /* Make the tweet input and button stack on small screens */
+    #tweet-form {
+        flex-direction: column;
+    }
+
+    /* Reduce the padding of the tweet button */
+    #tweet-button {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Reduce the width of the container */
+    .container {
+        width: 90%;
+    }
+}
+
+/* Add some transitions and animations for smoothness */
+/* Transition the background color of the tweet button on hover */
+#tweet-button:hover {
+    transition: background-color 0.3s;
+    background-color: #0d8bd9;
+}
+
+/* Transition the opacity of the like icon on hover */
+.like-icon:hover {
+    transition: opacity 0.3s;
+    opacity: 0.8;
+}
+
+/* Transition the opacity of the comment icon on hover */
+.comment-icon:hover {
+    transition: opacity 0.3s;
+    opacity: 0.8;
+}
+
+/* Transition the background color of the delete button on hover */
+.delete-button:hover {
+    transition: background-color 0.3s;
+    background-color: #d32f2f;
+}
+
+/* Transition the background color of the comment button on hover */
+.comment-button:hover {
+    transition: background-color 0.3s;
+    background-color: #0d8bd9;
+}
+
+.edit-button:hover {
+    transition: background-color 0.3s;
+    background-color: #388e3c;
+}
+
+.save-button:hover {
+    transition: background-color 0.3s;
+    background-color: #388e3c;
+}
+
+.cancel-button:hover {
+    transition: background-color 0.3s;
+    background-color: #d32f2f;
+}
+
+.tweet-card {
+    animation: slide-in 0.5s ease-in-out;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.comment-section {
+    animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://d2beiqkhq929f0.cloudfront.net/public_assets/assets/000/064/032/original/scaler-social.png?1706888764" alt="Left Image">
+        <img src="https://d2beiqkhq929f0.cloudfront.net/public_assets/assets/000/064/033/original/SST_Logo.png?1706888781" alt="Right Image">
+    </div>
+    <div class="container">
+        <form id="tweet-form">
+            <input type="text" id="tweet-input" placeholder="What's happening?" maxlength="280">
+            <input type="file" id="tweet-image" accept="image/*">
+            <button type="submit" id="tweet-button">Tweet</button>
+        </form>
+        
+    </div>
+    <div class="container-2">
+        <section id="tweet-section">
+        </section>
+    </div>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    
+var tweetForm = $("#tweet-form");
+
+var tweetInput = $("#tweet-input");
+
+var tweetButton = $("#tweet-button");
+
+var tweetSection = $("#tweet-section");
+
+function createTweet(content) {
+    var tweet = {
+        content: content,
+        id: Math.random().toString(36).substr(2, 9)
+    };
+    return tweet;
+}
+
+function createTweetCard(tweet) {
+    var tweetCard = $("<div></div>");
+    tweetCard.addClass("tweet-card");
+    tweetCard.attr("data-id", tweet.id);
+    var tweetContent = $("<div></div>");
+    tweetContent.addClass("tweet-content");
+    var tweetText = $("<p></p>");
+    tweetText.addClass("tweet-text");
+    tweetText.text(tweet.content);
+    tweetContent.append(tweetText);
+    var tweetActions = $("<div></div>");
+    tweetActions.addClass("tweet-actions");
+    var likeIcon = $("<img>");
+    likeIcon.addClass("like-icon");
+    likeIcon.attr("src", "https://d2beiqkhq929f0.cloudfront.net/public_assets/assets/000/064/029/original/heart.png?1706888679");
+    likeIcon.attr("data-liked", false);
+    tweetActions.append(likeIcon);
+    tweetContent.append(tweetActions);
+    tweetCard.append(tweetContent);
+    var deleteButton = $("<button>Delete</button>");
+    deleteButton.addClass("delete-button");
+    deleteButton.attr("data-id", tweet.id);
+    deleteButton.click(deleteTweet);
+    tweetActions.append(deleteButton);
+    var commentSection = $("<div></div>");
+    commentSection.addClass("comment-section");
+
+    var commentInput = $("<input type='text' placeholder='Add a comment...'>");
+    commentInput.addClass("comment-input");
+    commentSection.append(commentInput);
+
+    var commentButton = $("<button>Add Comment</button>");
+    commentButton.addClass("comment-button");
+    commentButton.click(function() {
+        addComment(tweet.id, commentInput.val());
+        commentInput.val('');
+    });
+    commentSection.append(commentButton);
+
+    tweetContent.append(tweetActions);
+    tweetCard.append(tweetContent);
+    tweetCard.append(commentSection);
+    var retweetButton = $("<button>Retweet</button>");
+    retweetButton.addClass("retweet-button");
+    retweetButton.attr("data-id", tweet.id);
+    retweetButton.click(function() {
+        retweet(tweet.id);
+    });
+    tweetActions.append(retweetButton);
+
+    tweetContent.append(tweetActions);
+    tweetCard.append(tweetContent);
+    var editButton = $("<button>Edit</button>");
+    editButton.addClass("edit-button");
+    editButton.attr("data-id", tweet.id);
+    editButton.click(function() {
+        editTweet(tweet.id);
+    });
+    tweetActions.append(editButton);
+
+    tweetContent.append(tweetActions);
+    tweetCard.append(tweetContent);
+    return tweetCard;
+}
+
+function postTweet() {
+    var tweetContent = tweetInput.val();
+    if (tweetContent) {
+        var tweet = createTweet(tweetContent);
+        var tweetCard = createTweetCard(tweet);
+        tweetSection.prepend(tweetCard);
+        tweetInput.val("");
+        saveTweet(tweet);
+    }
+}
+function editTweet(tweetId) {
+    // Find the tweet with the given id
+    var tweet = tweets.find(function(tweet) {
+        return tweet.id === tweetId;
+    });
+
+    // Prompt the user for the new content
+    var newContent = prompt("Enter the new content for the tweet:", tweet.content);
+
+    // Update the tweet's content
+    tweet.content = newContent;
+
+    // Update the tweets in the UI
+    updateTweets();
+}
+function addComment(tweetId, commentText) {
+    // Find the tweet with the given id
+    var tweet = tweets.find(function(tweet) {
+        return tweet.id === tweetId;
+    });
+
+    // Add the comment to the tweet's comments array
+    tweet.comments.push({
+        id: Date.now(),
+        text: commentText
+    });
+
+    // Update the tweets in the UI
+    updateTweets();
+}
+function retweet(tweetId) {
+    // Find the tweet with the given id
+    var tweet = tweets.find(function(tweet) {
+        return tweet.id === tweetId;
+    });
+
+    // Create a new tweet that is a retweet of the original tweet
+    var retweet = {
+        id: Date.now(),
+        content: "RT: " + tweet.content,
+        likes: 0,
+        retweets: 0,
+        comments: []
+    };
+
+    // Add the retweet to the tweets array
+    tweets.push(retweet);
+
+    // Update the tweets in the UI
+    updateTweets();
+}
+
+function likeTweet() {
+    var likeIcon = $(this);
+    var liked = likeIcon.attr("data-liked");
+    if (liked === "false") {
+        likeIcon.attr("data-liked", true);
+        likeIcon.attr("src", "https://d2beiqkhq929f0.cloudfront.net/public_assets/assets/000/064/025/original/state_clicked.png?1706888455");
+    } else {
+        likeIcon.attr("data-liked", false);
+        likeIcon.attr("src", "https://d2beiqkhq929f0.cloudfront.net/public_assets/assets/000/064/029/original/heart.png?1706888679");
+    }
+}
+function deleteTweet() {
+    var deleteButton = $(this);
+    var id = deleteButton.attr("data-id");
+    tweets = tweets.filter(tweet => tweet.id !== id);
+    console.log('Delete button clicked');
+    console.log('After:', tweets);
+    renderTweets();
+}
+
+function saveTweet(tweet) {
+    var tweets = JSON.parse(localStorage.getItem("tweets")) || [];
+    tweets.push(tweet);
+    localStorage.setItem("tweets", JSON.stringify(tweets));
+}
+
+function loadTweets() {
+    var tweets = JSON.parse(localStorage.getItem("tweets")) || [];
+    for (var tweet of tweets) {
+        var tweetCard = createTweetCard(tweet);
+        tweetSection.append(tweetCard);
+    }
+}
+
+tweetForm.on("submit", function(event) {
+    event.preventDefault();
+    postTweet();
+});
+
+tweetSection.on("click", function(event) {
+    var target = $(event.target);
+    if (target.hasClass("like-icon")) {
+        likeTweet.call(target);
+    }
+});
+
+$(document).ready(function() {
+    loadTweets();
+});
+
+
+
+</script>
+</html>
